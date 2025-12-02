@@ -1,0 +1,36 @@
+# Job Portal MVP (zero-cost)
+
+
+Requirements: Node.js, npm, MongoDB (local or Atlas), Ollama (optional) or alternate local LLM.
+
+
+1) Start MongoDB or create Atlas free cluster and set MONGO_URI in server/.env
+2) Run server:
+cd server
+npm install
+npm start
+<!-- nZSbeOBIvuIgtrsG
+akankshaofficial360_db_user -->
+<!-- mongodb+srv://akankshaofficial360_db_user:nZSbeOBIvuIgtrsG@cluster0.wvvdv7v.mongodb.net/?appName=Cluster0 -->
+3) Start extractor (needs local LLM like Ollama or replace call with HF):
+cd extractor
+npm install express node-fetch body-parser
+node extract.js
+
+
+4) Start crawler:
+cd crawler
+npm install playwright node-fetch
+node index.js
+
+
+5) Start frontend (any static host):
+cd frontend
+npm install
+npm start
+
+
+Notes:
+- If you don't have Ollama, modify extractor/extract.js's callOllama to use a simpler extraction or HF Inference.
+- Keep polite crawl delays.
+- Add robots.txt respect before crawling at scale.
